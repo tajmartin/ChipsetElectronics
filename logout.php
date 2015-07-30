@@ -3,10 +3,11 @@
  * Created by PhpStorm.
  * User: odin
  * Date: 7/30/15
- * Time: 4:41 PM
+ * Time: 6:33 PM
  */
 
-require_once("includes/connection.php");
+session_start();
+session_destroy();
 require_once("includes/functions.php");
 redirectTo("login.php");
 

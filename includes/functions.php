@@ -6,6 +6,10 @@
  * Time: 4:42 PM
  */
 
+function jsEcho($str) {
+    echo "<script type=\"text/javascript\"> alert(\"$str\") </script>";
+}
+
 function redirectTo($link) {
     header("Location: " . $link);
 }
