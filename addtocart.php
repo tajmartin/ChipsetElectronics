@@ -55,36 +55,52 @@ $qtyonhand = $row['qtyonhand'];
 <table>
     <tr>
         <td>
+            <p>
             Item Name:
+            </p>
         </td>
         <td>
+            <p>
             <?php echo "$name" ?>
             <input type="hidden" name="itemnumber" value="<?php echo $itemnumber ?>" >
+            </p>
         </td>
     </tr>
     <tr>
         <td>
+            <p>
             Price:
+            </p>
         </td>
         <td align="right">
+            <p>
             <?php echo "$unitprice" ?>
+            </p>
         </td>
     </tr>
     <tr>
         <td>
+            <p>
             Left in Stock:
+            </p>
         </td>
         <td align="right">
+            <p>
             <?php echo "$qtyonhand" ?>
+            </p>
         </td>
     </tr>
     <tr>
         <td>
+            <p>
             <input type="number" min="1" max="<?php echo $qtyonhand?>" name="quantity">
+            </p>
         </td>
         <td align="center">
+            <p>
             <input type="submit" name="submit" value="Add to Cart"> <br>
             <!-- <a href="viewcart.php" target=""><button>Add to Cart</button></a> -->
+            </p>
         </td>
     </tr>
 

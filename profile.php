@@ -13,11 +13,16 @@ require_once("includes/functions.php");
 $currentPage = 'profile';
 
 if (!isset($_SESSION['username'])) {
-    redirectTo("login.php");
+    redirectTo("register.php");
 }
 
-if (isset($_POST['submit'])) {
-    $query2 = "update user where username like ";
+if (isset($_GET['name'])) {
+    $name = $_GET['name'];
+    $username = $_GET['username'];
+    $address = $_GET['address'];
+    $query2 = "update user set username = '$username', name = '$name', address = '$address' where username like '$username'";
+    //echo $query2;
+    $result2 = mysqli_query($connection, $query2);
 }
 
 ?>
