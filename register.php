@@ -10,6 +10,8 @@ session_start();
 require_once("includes/connection.php");
 require_once("includes/functions.php");
 
+$currentPage = 'register';
+
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

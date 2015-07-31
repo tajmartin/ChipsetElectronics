@@ -9,6 +9,7 @@
 session_start();
 require_once("includes/connection.php");
 require_once("includes/functions.php");
+$currentPage = 'inventory';
 
 $query = "select * from inventoryitem";
 
