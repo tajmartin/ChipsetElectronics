@@ -14,4 +14,13 @@ function redirectTo($link) {
     header("Location: " . $link);
 }
 
+function addToCart($itemnumber, $quantity) {
+    if (isset($_SESSION['cart'][$itemnumber])) {
+        $_SESSION['cart'][$itemnumber] += intval($quantity);
+    }
+    else {
+        $_SESSION['cart'][$itemnumber] = intval($quantity);
+    }
+}
+
 ?>

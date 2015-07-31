@@ -1,0 +1,256 @@
+DROP TABLE IF EXISTS orders;
+
+DROP TABLE IF EXISTS lineitem;
+
+DROP TABLE IF EXISTS inventoryitem;
+
+DROP TABLE IF EXISTS user;
+
+DROP TABLE IF EXISTS payment;
+
+CREATE TABLE orders
+  (
+     ordernumber    INT(20) NOT NULL auto_increment,
+     totalprice     DECIMAL(5, 2),
+     customernumber INT(20),
+     payment        VARCHAR(2),
+     shipto         VARCHAR(40),
+     CONSTRAINT pk_orders PRIMARY KEY (ordernumber)
+  );
+
+CREATE TABLE lineitem
+  (
+     ordernumber INT(20) NOT NULL,
+     itemnumber  INT(20) NOT NULL,
+     qtyordered  INT(3),
+     lineprice   DECIMAL(5, 2),
+     CONSTRAINT pk_lineitem PRIMARY KEY (ordernumber, itemnumber)
+  );
+
+CREATE TABLE inventoryitem
+  (
+     itemnumber INT(20) NOT NULL auto_increment,
+     name       VARCHAR(20),
+     unitprice  DECIMAL(5, 2),
+     qtyonhand  INT(4),
+     CONSTRAINT pk_inventoryitem PRIMARY KEY (itemnumber)
+  );
+
+CREATE TABLE user
+  (
+     customernumber INT(20) NOT NULL auto_increment,
+     name           VARCHAR(20),
+     billto         VARCHAR(40),
+     username       VARCHAR(20) UNIQUE,
+     password       VARCHAR(20),
+     CONSTRAINT pk_user PRIMARY KEY (customernumber)
+  );
+
+CREATE TABLE payment
+  (
+     customernumber INT(20) NOT NULL,
+     cardindex      INT(20),
+     nameoncard     VARCHAR(20),
+     ccnumber       VARCHAR(16),
+     ccv            VARCHAR(4),
+     zip            VARCHAR(5),
+     CONSTRAINT pk_payment PRIMARY KEY (customernumber, cardindex)
+  );
+
+INSERT INTO user
+            (name,
+             address,
+             username,
+             password)
+VALUES     ("merrick",
+            "123 murica dr",
+            "mroyball1",
+            "mroyball1");
+
+INSERT INTO user
+            (name,
+             address,
+             username,
+             password)
+VALUES      ("indiana jones",
+             "who knows",
+             "indy",
+             "");
+
+INSERT INTO user
+            (name,
+             address,
+             username,
+             password)
+VALUES      ("indiana jones",
+             "who knows",
+             "indy@indy.com",
+             "");
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("intel core i7-4790k",
+            339,
+            4);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("intel core i5-4690k",
+            239,
+            7);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("amd fx-6300",
+            109,
+            2);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("amd fx-8350",
+            174,
+            5);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("nexus 6 32gb",
+            499,
+            5);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("nexus 6 64gb",
+            549,
+            9);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("nexus 9 16gb",
+            399,
+            5);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("nexus 9 32gb",
+            479,
+            5);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("google chromecast",
+            29.99,
+            50);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("kindle paperwhite",
+            119.00,
+            5);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("samsung galaxy tab 4",
+            135.99,
+            54);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("apple ipad mini",
+            227.88,
+            81);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("netgear nighthawk",
+            171.67,
+            37);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("dell e2414hr 24-inch",
+            139.99,
+            26);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("samsung galaxy tab 4",
+            135.99,
+            54);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("macbook pro 13.3",
+            999.99,
+            165);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("macbook pro 15.4",
+            1899.99,
+            195);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("sony playstation 4",
+            400,
+            195);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("microsoft xbox one",
+            399.99,
+            195);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("fitbit charge",
+            149.99,
+            195);
+
+INSERT INTO inventoryitem
+            (name,
+             unitprice,
+             qtyonhand)
+VALUES     ("jawbone up24",
+            59.99,
+            195);
