@@ -15,7 +15,8 @@ $currentPage='addtocart';
 if (isset($_GET['itemnumber'])) {
     $itemnumber = $_GET['itemnumber'];
     $query = "select * from inventoryitem where itemnumber = $itemnumber";
-    //echo $query;
+    echo $query;
+    echo "<br>" . $itemnumber;
 
     $result = mysqli_query($connection, $query);
 
@@ -37,6 +38,7 @@ if (isset($_GET['itemnumber'])) {
 
 $row = mysqli_fetch_assoc($result);
 
+$itemnumber = $row['itemnumber'];
 $name = $row['name'];
 $unitprice = $row['unitprice'];
 $qtyonhand = $row['qtyonhand'];
@@ -56,6 +58,7 @@ $qtyonhand = $row['qtyonhand'];
         </td>
         <td>
             <?php echo "$name" ?>
+            <input type="hidden" name="itemnumber" value="<?php echo $itemnumber ?>" >
         </td>
     </tr>
     <tr>
@@ -76,10 +79,11 @@ $qtyonhand = $row['qtyonhand'];
     </tr>
     <tr>
         <td>
-            <input type="number" min="1" max="<?php echo $qtyonhand?>">
+            <input type="number" min="1" max="<?php echo $qtyonhand?>" name="quantity">
         </td>
         <td align="center">
-            <input type="submit" name="submit" value="Add to Cart">
+            <input type="submit" name="submit" value="Add to Cart"> <br>
+            <!-- <a href="viewcart.php" target=""><button>Add to Cart</button></a> -->
         </td>
     </tr>
 
