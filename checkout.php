@@ -16,6 +16,11 @@ if (isset($_SESSION['creditcard']) && isset($_SESSION['ccv']) && isset($_SESSION
 
 }
 
+if (isset($_POST['confirm_order'])) {
+    unset($_SESSION['cart']);
+    redirectTo("inventory.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -31,21 +36,29 @@ if (isset($_SESSION['creditcard']) && isset($_SESSION['ccv']) && isset($_SESSION
 
 <form action="checkout.php" method="post">
     <table>
+        <p>
         <tr>
             <td>Credit Card #:</td>
             <td><input type="number" name="creditcard"></td>
         </tr>
+        </p>
+        <p>
         <tr>
             <td>CCV:</td>
             <td><input type="number" name="ccv"></td>
         </tr>
+        </p>
+        <p>
         <tr>
             <td>Zip Code:</td>
             <td><input type="number" name="zipcode"></td>
         </tr>
+        </p>
+        <p>
         <tr>
-            <td colspan="2" align="center" ><input type="submit" value="Confirm Order" name="confirm"> </td>
+            <td colspan="2" align="center" ><input type="submit" value="Confirm Order" name="confirm_order"> </td>
         </tr>
+        </p>
     </table>
 </form>
 

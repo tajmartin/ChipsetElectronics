@@ -61,12 +61,14 @@ foreach ($cart as $itemnumber => $value) {
 
 
 <table>
+    <p>
     <tr>
         <td>Item</td>
         <td>Quantity</td>
         <td>Line Price</td>
         <td>Total</td>
     </tr>
+    </p>
 <?php
 
 $sum = 0;
@@ -77,6 +79,7 @@ foreach ($cart as $itemnumber => $value) {
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_assoc($result);
     //echo $query;
+    echo "<p>";
     echo "<tr>";
     echo "<td> {$row['name']} </td>";
     echo "<td> {$value} </td>";
@@ -87,19 +90,24 @@ foreach ($cart as $itemnumber => $value) {
 
     echo "<td> {$totalitemprice} </td>";
     echo "</tr>";
+    echo "</p>";
 }
 
 //add total to cart
 $_SESSION['carttotal'] = $sum;
 
 ?>
+    <p>
     <tr>
         <td colspan="3" align="center">Grand Total:</td>
         <td><?php echo "$" . $sum ?></td>
     </tr>
+    </p>
+    <p>
     <tr>
         <td align="center"><a href="checkout.php" target=""><button>Checkout</button></a></td>
     </tr>
+    </p>
 </table>
 
 <?php require_once("includes/footer.php") ?>
