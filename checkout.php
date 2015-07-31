@@ -49,6 +49,6 @@ if (isset($_SESSION['creditcard']) && isset($_SESSION['ccv']) && isset($_SESSION
     </table>
 </form>
 
-
+<?php require_once("includes/footer.php") ?>
 </body>
 </html>

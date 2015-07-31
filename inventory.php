@@ -47,5 +47,6 @@ $result = mysqli_query($connection, $query);
     ?>
 </table>
 
+<?php require_once("includes/footer.php") ?>
 </body>
 </html>

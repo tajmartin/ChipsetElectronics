@@ -110,5 +110,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 </form>
 
+<?php require_once("includes/footer.php") ?>
 </body>
 </html>
