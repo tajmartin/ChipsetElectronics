@@ -10,7 +10,7 @@ session_start();
 require_once("includes/connection.php");
 require_once("includes/functions.php");
 
-$page = 'viewcart';
+$currentPage = 'viewcart';
 
 //check to see if the item is already in the cart
 if (isset($_POST['itemnumber']) && isset($_POST['quantity'])) {
@@ -50,6 +50,7 @@ if (isset($_POST['itemnumber']) && isset($_POST['quantity'])) {
     <title></title>
 </head>
 <body>
+<?php require_once("includes/header.php") ?>
 
 <?php
 $cart = $_SESSION['cart'];
@@ -75,7 +76,7 @@ foreach ($cart as $itemnumber => $value) {
     $query = "select * from inventoryitem where itemnumber = '$itemnumber'";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_assoc($result);
-    echo $query;
+    //echo $query;
     echo "<tr>";
     echo "<td> {$row['name']} </td>";
     echo "<td> {$value} </td>";
@@ -85,13 +86,19 @@ foreach ($cart as $itemnumber => $value) {
     $sum += $totalitemprice;
 
     echo "<td> {$totalitemprice} </td>";
+    echo "</tr>";
 }
 
+//add total to cart
+$_SESSION['carttotal'] = $sum;
 
 ?>
     <tr>
         <td colspan="3" align="center">Grand Total:</td>
         <td><?php echo "$" . $sum ?></td>
+    </tr>
+    <tr>
+        <td align="center"><a href="checkout.php" target=""><button>Checkout</button></a></td>
     </tr>
 </table>
 

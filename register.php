@@ -42,6 +42,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <title></title>
 </head>
 <body>
+
+<?php require_once("includes/header.php") ?>
+
 <form action="register.php" method="post" onsubmit="return checkPassword();">
 
     <table>

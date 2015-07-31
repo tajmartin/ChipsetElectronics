@@ -15,8 +15,8 @@ $currentPage='addtocart';
 if (isset($_GET['itemnumber'])) {
     $itemnumber = $_GET['itemnumber'];
     $query = "select * from inventoryitem where itemnumber = $itemnumber";
-    echo $query;
-    echo "<br>" . $itemnumber;
+    //echo $query;
+    //echo "<br>" . $itemnumber;
 
     $result = mysqli_query($connection, $query);
 
@@ -33,6 +33,7 @@ if (isset($_GET['itemnumber'])) {
     <title></title>
 </head>
 <body>
+<?php require_once("includes/header.php") ?>
 
 <?php
 

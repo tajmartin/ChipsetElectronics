@@ -28,6 +28,7 @@ $result = mysqli_query($connection, $query);
     <title></title>
 </head>
 <body>
+<?php require_once("includes/header.php") ?>
 
 <table>
     <?php

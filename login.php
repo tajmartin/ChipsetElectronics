@@ -52,6 +52,9 @@ if (isset($_SESSION['username'])) {
     <title></title>
 </head>
 <body>
+
+<?php require_once("includes/header.php") ?>
+
 <form action="login.php" method="post">
 
     <table>
