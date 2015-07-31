@@ -34,12 +34,14 @@ $result = mysqli_query($connection, $query);
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
         //$itemnumber
+        echo "<p>";
         echo "<tr>";
-        echo "<td>{$row['itemnumber']}</td>";
+        //echo "<td>{$row['itemnumber']}</td>";
         echo "<td><a href=\"addtocart.php?itemnumber={$row['itemnumber']}\">{$row['name']}</a></td>";
         echo "<td align=\"right\">{$row['unitprice']}</td>";
-        echo "<td>{$row['qtyonhand']}</td>";
+        //echo "<td>{$row['qtyonhand']}</td>";
         echo "</tr>";
+        echo "</p>";
 
     }
     ?>

@@ -12,3 +12,8 @@ function checkPassword() {
         return true;
     }
 }
+
+function recoverPassword() {
+    alert("Recovery instructions sent to your email!");
+    return false;
+}
